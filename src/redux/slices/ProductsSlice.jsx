@@ -30,8 +30,7 @@ export const ProductsSlice = createSlice({
             }
         },
         searchQuery: (state, action) => {
-            console.log(action.payload)
-            state.products = state.dummyProducts.filter((prod) => prod.title.toString().toLowerCase().includes(action.payload.toString()))
+            state.products = state.dummyProducts.filter((prod) => prod.title.toLowerCase().includes(action.payload.toLowerCase()))
         }
     }, extraReducers: (builder) => {
         builder.addCase(FetchProducts.pending, (state, action) => {
